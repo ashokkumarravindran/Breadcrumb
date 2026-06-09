@@ -1,6 +1,8 @@
-Copyright (c) 2026 Ashok Kumar Ravindran
-All Rights Reserved.
-This software and associated documentation files (“Breadcrumbs”) are the proprietary intellectual property of Ashok Kumar Ravindran.
-No part of this software may be copied, modified, distributed, sublicensed, sold, published, reverse engineered, or used in any form without prior written permission from the copyright holder.
-Permission to view the source code is granted solely for evaluation and review purposes. No license or rights are granted to use, reproduce, or create derivative works from this software.
-For licensing inquiries, contact the copyright holder.
+Copyright © 2026 [SLALOM]
+Breadcrumbs was originally conceived and designed by Ashok Kumar Ravindran, Senior Consultant, Experience Design.
+This repository contains concepts, documentation, prototypes, and implementation artifacts related to the Breadcrumbs platform.
+The Breadcrumbs concept, experience vision, and roadmap were created to explore how people can bring together the information they save across digital and physical experiences into a unified recall layer that helps them rediscover, connect, and act on what matters most.
+Rather than functioning solely as a bookmarking, note-taking, or reminder tool, Breadcrumbs explores how AI can be used to understand relationships between saved content, surface contextual insights, identify relevant next steps, and help users stay connected to the things they intended to remember.
+Contributors are encouraged to collaborate, enhance, and evolve the platform. Significant strategic enhancements, adaptations, or extensions should, where practical, be discussed with the original creator to maintain alignment with the broader product vision, experience principles, and future roadmap that guide the platform.
+This notice is intended to acknowledge authorship of the original concept and encourage collaborative stewardship of the platform as it evolves.
+For collaboration, licensing, or partnership inquiries, please contact the original creator.
