@@ -53,56 +53,57 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-30 border-b border-stone-200/80 bg-canvas/90 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-4 text-ink transition hover:text-ink/80">
-          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-200 to-orange-200 text-lg font-bold text-ink shadow-sm">
-            B
+      <div className="mx-auto flex max-w-7xl items-center px-4 py-4 sm:px-6 lg:px-8">
+        <Link href="/" className="text-ink transition hover:text-ink/80">
+          <span className="text-2xl font-semibold tracking-tight">
+            breadcrumb.
           </span>
-          <span className="text-base font-semibold tracking-tight text-ink">Breadcrumbs</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
-          {navItems.map((item) => {
-            const active = pathname === item.href;
+        <div className="ml-auto flex items-center gap-12">
+          <nav className="hidden items-center gap-8 md:flex">
+            {navItems.map((item) => {
+              const active = pathname === item.href;
 
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-sm font-medium transition ${
-                  active ? 'text-ink' : 'text-soft hover:text-ink'
-                }`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </nav>
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`text-sm font-medium transition ${
+                    active ? 'text-ink' : 'text-soft hover:text-ink'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
 
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            aria-label="Notifications"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-200 bg-white text-soft transition hover:border-amber-200 hover:text-ink"
-          >
-            <BellIcon />
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              aria-label="Notifications"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-200 bg-white text-soft transition hover:border-amber-200 hover:text-ink"
+            >
+              <BellIcon />
+            </button>
 
-          <button
-            type="button"
-            aria-label="Settings"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-200 bg-white text-soft transition hover:border-amber-200 hover:text-ink"
-          >
-            <SettingsIcon />
-          </button>
+            <button
+              type="button"
+              aria-label="Settings"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-200 bg-white text-soft transition hover:border-amber-200 hover:text-ink"
+            >
+              <SettingsIcon />
+            </button>
 
-          <button
-            type="button"
-            aria-label="User profile"
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-ink text-sm font-semibold text-white shadow-sm transition hover:bg-slate-900"
-          >
-            AK
-          </button>
+            <button
+              type="button"
+              aria-label="User profile"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-ink text-sm font-semibold text-white shadow-sm transition hover:bg-slate-900"
+            >
+              AK
+            </button>
+          </div>
         </div>
       </div>
     </header>

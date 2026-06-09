@@ -1,6 +1,6 @@
 # Breadcrumbs
 
-readcrumbs is a personal recall layer designed to help people stay connected to the things they save, collect, and intend to revisit.
+Breadcrumbs is a personal recall layer designed to help people stay connected to the things they save, collect, and intend to revisit.
 Today, personal information is fragmented across apps. Ideas live in notes. Shopping plans live in wishlists. Articles live in bookmarks. Recipes live in cooking apps. Travel plans live in screenshots, emails, and browser tabs. Reminders exist somewhere else entirely.
 Each tool solves a small part of the problem, but none of them understand the broader context of a person’s life.
 Breadcrumbs brings these scattered pieces together into a single memory layer.
