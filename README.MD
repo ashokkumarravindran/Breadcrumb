@@ -1,46 +1,53 @@
-# Breadcrumbs
+## Breadcrumb
 
-Breadcrumbs is a personal recall layer designed to help people stay connected to the things they save, collect, and intend to revisit.
-Today, personal information is fragmented across apps. Ideas live in notes. Shopping plans live in wishlists. Articles live in bookmarks. Recipes live in cooking apps. Travel plans live in screenshots, emails, and browser tabs. Reminders exist somewhere else entirely.
-Each tool solves a small part of the problem, but none of them understand the broader context of a person’s life.
-Breadcrumbs brings these scattered pieces together into a single memory layer.
-Instead of simply storing information, Breadcrumbs organizes saved items into collections, identifies connections between them, highlights items that may need attention, and surfaces useful context when it matters most.
-The goal is not to replace note-taking, bookmarking, or reminder apps. The goal is to create a unified recall experience across everything a person chooses to save.
-Current MVP
-The current version is a concept prototype focused on validating the user experience.
+Breadcrumb is an AI-powered personal context engine designed to help people manage information scattered across their digital lives.
+Today, important information lives in dozens of disconnected places: notes in Apple Notes or Google Keep, reminders in Apple Reminders, shopping lists on Amazon, saved links, documents, places, products, events, and more. Breadcrumb aims to become the single layer that connects these fragmented sources and gives users one place to understand, manage, and act on what matters.
+Rather than functioning as another note-taking or task management tool, Breadcrumb focuses on helping users capture information once and rediscover it when it becomes relevant.
+Vision
+The long-term vision for Breadcrumb is to become a proactive AI companion that continuously analyzes information across a user’s connected ecosystem.
 
-The MVP demonstrates:
-	●	Unified memory cards for different types of saved content
-	●	Collection-based organization
-	●	Context-aware memory details
-	●	Connected trails between related items
-	●	AI-inspired insights and recommendations
-	●	Action-oriented revisit flows
+By understanding relationships between saved content, user behavior, timing, location, and context, Breadcrumb can:
+	●	Identify patterns across disconnected information
+	●	Surface timely reminders and recommendations
+	●	Highlight opportunities, risks, and actions that may otherwise be missed
+	●	Connect related pieces of information automatically
+	●	Help users stay organized without requiring constant manual effort
 
-The current implementation uses curated sample data and simulated AI outputs to demonstrate the intended experience.
-Future Vision
+The goal is not simply to help users remember things, but to help them take meaningful action at the right moment.
+MVP Scope
 
-Future phases of Breadcrumbs will introduce real AI-powered capabilities, including:
-	●	Automatic categorization of saved content
-	●	Cross-app memory ingestion
-	●	Context extraction from links, screenshots, notes, and documents
-	●	Relationship mapping across memories
-	●	Personalized recall recommendations
-	●	Time-sensitive reminders generated from user behavior
-	●	Semantic search and conversational memory retrieval
-The long-term vision is to create a personal intelligence layer that helps people remember, reconnect with, and act on the information that matters most.
-    
+This MVP focuses on demonstrating the concept and validating the information architecture behind Breadcrumb.
+The current experience showcases:
+	●	A unified home experience that aggregates information from multiple categories
+	●	Contextual cards that surface relevant information and recommendations
+	●	Detail views that provide additional context and related insights
+	●	Example AI-generated recommendations using realistic mock data
+	●	Exploration of how information can be connected, organized, and surfaced through a single interface
+
+The MVP is intentionally designed as an “art of the possible” prototype and does not yet include live integrations or production AI workflows.
+
+## Future Roadmap
+
+Future releases will introduce:
+	●	Integrations with Apple Notes, Apple Reminders, Google Keep, Evernote, Amazon, calendars, email, and other productivity platforms
+	●	Automated ingestion and organization of information across sources
+	●	AI-powered pattern detection and contextual reasoning
+	●	Personalized recommendations and proactive notifications
+	●	Natural language search across all connected information
+	●	Automated task creation and action orchestration
+	●	Cross-device synchronization and personalization
+Technology Stack
+	●	Next.js
+	●	React
+	●	TypeScript
+	●	Tailwind CSS
+	●	Framer Motion
+	●	Vercel
+
 
 ## Live Site
 https://breadcrumb-theta.vercel.app/
 
-## What it does
-
-- Save links, places, products, recipes, notes, and ideas
-- Organize saved items into collections
-- Surface time-sensitive items that need attention
-- Show AI-style insights and connected trails
-- Provide action-oriented detail pages
 
 ## Tech Stack
 
