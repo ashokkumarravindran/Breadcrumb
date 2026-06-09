@@ -7,17 +7,11 @@ import { MemoryCard } from '../../components/memory-card';
 
 export default function CollectionsPage() {
   const [memories, setMemories] = useState<Memory[]>(sampleMemories);
-  const [active, setActive] = useState(collections[0]);
+  const [active, setActive] = useState('Events and Plans');
 
   useEffect(() => {
-    const stored = window.localStorage.getItem('breadcrumbs-memories');
-    if (stored) {
-      try {
-        setMemories(JSON.parse(stored));
-      } catch {
-        setMemories(sampleMemories);
-      }
-    }
+    window.localStorage.setItem('breadcrumbs-memories', JSON.stringify(sampleMemories));
+    setMemories(sampleMemories);
   }, []);
 
   const collectionMemories = useMemo(
@@ -26,66 +20,105 @@ export default function CollectionsPage() {
   );
 
   return (
-    <div className="mx-auto max-w-6xl space-y-8">
-      <div className="flex flex-col gap-4 rounded-[2rem] border border-slate-200/80 bg-white p-8">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <div className="mx-auto max-w-7xl space-y-10">
+      <section className="rounded-[2.5rem] border border-stone-200/80 bg-white p-8 shadow-sm lg:p-10">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <p className="text-sm uppercase tracking-[0.24em] text-soft">Collections</p>
-            <h1 className="mt-2 text-3xl font-semibold text-ink">Keep your themes calm and easy to scan.</h1>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/" className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-ink transition hover:border-amber-300">
-              Home
+            <Link
+              href="/"
+              className="text-sm font-semibold text-soft transition hover:text-ink"
+            >
+              ← Back to home
             </Link>
-            <Link href="/add-memory" className="rounded-full bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-900">
-              Add memory
-            </Link>
-          </div>
-        </div>
-        <p className="text-sm leading-7 text-soft">Select a collection to browse memory cards in a calm, visual layout.</p>
-      </div>
 
-      <div className="grid gap-6 xl:grid-cols-[0.35fr_0.65fr]">
-        <div className="rounded-[2rem] border border-slate-200/80 bg-white p-5">
+            <p className="mt-8 text-sm font-semibold uppercase tracking-[0.28em] text-soft">
+              Collections
+            </p>
+
+            <h1 className="mt-3 max-w-3xl text-4xl font-semibold leading-tight text-ink sm:text-5xl">
+              Organized by intent.
+            </h1>
+
+            <p className="mt-4 max-w-2xl text-base leading-8 text-soft">
+              Browse the things you saved by what they were meant for — plans, purchases,
+              gifts, recipes, health notes, and ideas Breadcrumbs can bring back when useful.
+            </p>
+          </div>
+
+          <Link
+            href="/add-memory"
+            className="w-fit rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-900"
+          >
+            Add something
+          </Link>
+        </div>
+      </section>
+
+      <section className="grid gap-6 xl:grid-cols-[0.32fr_0.68fr]">
+        <aside className="rounded-[2rem] border border-stone-200/80 bg-white p-5 shadow-sm">
+          <p className="mb-4 px-2 text-xs font-semibold uppercase tracking-[0.24em] text-soft">
+            Your collections
+          </p>
+
           <div className="space-y-3">
             {collections.map((collection) => {
               const count = memories.filter((item) => item.collection === collection).length;
+              const selected = active === collection;
+
               return (
                 <button
                   key={collection}
                   onClick={() => setActive(collection)}
-                  className={`w-full rounded-[1.5rem] px-5 py-4 text-left text-sm transition ${
-                    active === collection ? 'bg-slate-100 text-ink' : 'bg-slate-50 text-soft hover:bg-slate-100'
+                  className={`w-full rounded-[1.5rem] px-5 py-4 text-left transition ${
+                    selected
+                      ? 'bg-amber-50 text-ink ring-1 ring-amber-200'
+                      : 'bg-stone-50 text-ink hover:bg-stone-100'
                   }`}
                 >
-                  <div className="font-semibold">{collection}</div>
-                  <div className="mt-1 text-xs">{count} item{count === 1 ? '' : 's'}</div>
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="text-sm font-semibold">{collection}</p>
+                    <p className="text-xs text-soft">
+                      {count} item{count === 1 ? '' : 's'}
+                    </p>
+                  </div>
                 </button>
               );
             })}
           </div>
-        </div>
+        </aside>
 
-        <div className="space-y-5 rounded-[2rem] border border-slate-200/80 bg-white p-6">
-          <div className="flex items-center justify-between gap-4">
+        <main className="rounded-[2rem] border border-stone-200/80 bg-white p-6 shadow-sm">
+          <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-sm uppercase tracking-[0.24em] text-soft">Selected collection</p>
+              <p className="text-sm uppercase tracking-[0.24em] text-soft">
+                Selected trail
+              </p>
               <h2 className="mt-2 text-2xl font-semibold text-ink">{active}</h2>
             </div>
-            <Link href="/add-memory" className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-ink transition hover:border-amber-300">
-              Add memory
-            </Link>
+
+            <p className="text-sm text-soft">
+              Showing {collectionMemories.length} saved item
+              {collectionMemories.length === 1 ? '' : 's'}
+            </p>
           </div>
 
-          <div className="space-y-4">
-            {collectionMemories.length > 0 ? (
-              collectionMemories.map((memory) => <MemoryCard key={memory.id} memory={memory} />)
-            ) : (
-              <p className="rounded-[1.5rem] border border-slate-200/80 bg-slate-50 px-5 py-6 text-sm text-soft">No memories saved here yet.</p>
-            )}
-          </div>
-        </div>
-      </div>
+          {collectionMemories.length > 0 ? (
+            <div className="grid gap-6 lg:grid-cols-2">
+              {collectionMemories.map((memory) => (
+                <MemoryCard key={memory.id} memory={memory} />
+              ))}
+            </div>
+          ) : (
+            <div className="rounded-[1.75rem] border border-stone-200/80 bg-stone-50 p-8">
+              <p className="text-sm font-semibold text-ink">Nothing here yet.</p>
+              <p className="mt-2 text-sm leading-6 text-soft">
+                Once you save something into this collection, Breadcrumbs can enrich it with
+                context, connections, and useful next steps.
+              </p>
+            </div>
+          )}
+        </main>
+      </section>
     </div>
   );
 }
