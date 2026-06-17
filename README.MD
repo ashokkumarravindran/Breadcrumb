@@ -1,62 +1,65 @@
-## Breadcrumb
+# breadcrumb.
 
-Breadcrumb is an AI-powered personal context engine designed to help people manage information scattered across their digital lives.
-Today, important information lives in dozens of disconnected places: notes in Apple Notes or Google Keep, reminders in Apple Reminders, shopping lists on Amazon, saved links, documents, places, products, events, and more. Breadcrumb aims to become the single layer that connects these fragmented sources and gives users one place to understand, manage, and act on what matters.
-Rather than functioning as another note-taking or task management tool, Breadcrumb focuses on helping users capture information once and rediscover it when it becomes relevant.
-Vision
-The long-term vision for Breadcrumb is to become a proactive AI companion that continuously analyzes information across a user’s connected ecosystem.
+**Save once. Act later.**
 
-By understanding relationships between saved content, user behavior, timing, location, and context, Breadcrumb can:
-	●	Identify patterns across disconnected information
-	●	Surface timely reminders and recommendations
-	●	Highlight opportunities, risks, and actions that may otherwise be missed
-	●	Connect related pieces of information automatically
-	●	Help users stay organized without requiring constant manual effort
+Breadcrumb is an AI-powered personal context engine that captures links, places, products, notes, events, and ideas — then quietly turns them into timely actions when the context becomes useful.
 
-The goal is not simply to help users remember things, but to help them take meaningful action at the right moment.
-MVP Scope
+Live site: [breadcrumb-theta.vercel.app](https://breadcrumb-theta.vercel.app)
 
-This MVP focuses on demonstrating the concept and validating the information architecture behind Breadcrumb.
-The current experience showcases:
-	●	A unified home experience that aggregates information from multiple categories
-	●	Contextual cards that surface relevant information and recommendations
-	●	Detail views that provide additional context and related insights
-	●	Example AI-generated recommendations using realistic mock data
-	●	Exploration of how information can be connected, organized, and surfaced through a single interface
+---
 
-The MVP is intentionally designed as an “art of the possible” prototype and does not yet include live integrations or production AI workflows.
+## What it does
 
-## Future Roadmap
+Most saved content goes nowhere. A restaurant you meant to try, a product you almost bought, a gift idea you had in passing — all scattered across browser tabs, notes apps, and reminders that never surface at the right moment.
 
-Future releases will introduce:
-	●	Integrations with Apple Notes, Apple Reminders, Google Keep, Evernote, Amazon, calendars, email, and other productivity platforms
-	●	Automated ingestion and organization of information across sources
-	●	AI-powered pattern detection and contextual reasoning
-	●	Personalized recommendations and proactive notifications
-	●	Natural language search across all connected information
-	●	Automated task creation and action orchestration
-	●	Cross-device synchronization and personalization
-Technology Stack
-	●	Next.js
-	●	React
-	●	TypeScript
-	●	Tailwind CSS
-	●	Framer Motion
-	●	Vercel
+Breadcrumb is a single layer that captures information once, organizes it by intent, and resurfaces it when timing, location, or context makes it actionable.
 
+---
 
-## Live Site
-https://breadcrumb-theta.vercel.app/
+## Tech stack
 
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 14 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS |
+| Deployment | Vercel |
 
-## Tech Stack
+---
 
-- Next.js
-- TypeScript
-- Tailwind CSS
-
-## Run locally
+## Running locally
 
 ```bash
 npm install
 npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+---
+
+## Project structure
+
+```
+app/
+  page.tsx              # Home feed — saved trail, action items, collections
+  add-memory/           # Capture form for new memories
+  collections/          # Collection browser
+  memories/[slug]/      # Memory detail view with AI insights and connected trail
+components/
+  header.tsx            # Nav, notifications, user avatar
+  memory-card.tsx       # Card with AI insight, suggested action, connected trail
+  collection-card.tsx   # Collection tile with item count
+  weather-card.tsx      # Location-aware weather panel
+  weather-chip.tsx      # Inline weather badge on place cards
+lib/
+  data.ts               # Memory schema, collections, and sample data
+  weather.ts            # Open-Meteo weather fetch
+  suggestions.ts        # Context-aware day plan copy
+```
+
+---
+
+## License
+
+See [LICENSE.MD](LICENSE.MD).
